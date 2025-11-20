@@ -18,7 +18,7 @@ module.exports = {
         venv: ".venv",
         path: "app",
         message: [
-          "uv sync"
+          "uv sync --force-reinstall --no-cache"
         ]
       }
     },

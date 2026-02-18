@@ -14,11 +14,21 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        path: "app",
+        message: [
+          "python -c \"f='pyproject.toml'; c=open(f).read(); c=c if '[tool.setuptools.packages.find]' in c else c+'\\n[tool.setuptools.packages.find]\\nwhere = [\\\".\\\"]\\ninclude = [\\\"sorawm\\\", \\\"sorawm.*\\\"]\\n'; open(f, 'w').write(c)\""
+        ]
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
         venv_python: "3.12",
         venv: ".venv",
         path: "app",
         message: [
-          "uv sync --force-reinstall --no-cache"
+          "uv pip install \"setuptools<70\" \"wheel\" \"packaging\"",
+          "uv pip install . --no-build-isolation"
         ]
       }
     },

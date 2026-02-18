@@ -27,7 +27,7 @@ module.exports = {
         venv: ".venv",
         path: "app",
         message: [
-          "uv pip install \"setuptools<70\" \"wheel\" \"packaging\"",
+          'uv pip install "setuptools<70" wheel packaging',
           "uv pip install . --no-build-isolation"
         ]
       }
